@@ -2,22 +2,25 @@ import { StatusBar } from 'expo-status-bar';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import { Link, router} from 'expo-router';
 import { useState } from 'react';
-
+import { SafeAreaView } from 'react-native-safe-area-context';
+import  MyButton  from './components/mybutton';
+import 'react-native-gesture-handler';
 export default function App() {
     const [isPressed, setIsPressed] = useState(false);
 
-    const handlePress = () => {
-      setIsPressed(!isPressed);
-    };
     const buttonStyles = [styles.myButton, isPressed ? styles.pressedButton: null]
   return (
-    <View style={styles.container}>
-      <Text style={{color:'green'}}>Welcome to the shrimp shop</Text>
-    <View style={{top:150}}>
-        <Link href="/tanks" style={styles.myButton}>Press me to enter</Link>
-    </View>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
+        <Text style={{color:'green'}}>Welcome to the shrimp shop</Text>
+      <View style={{top:150}}>
+  
+          {/* <MyButton title="Enter App" onPress={handle} isPressed={isPressed}/> */}
+          <Link href="/(tabs)/tanks" style={styles.myButton}>Press me to enter</Link>
+      </View>
+        <StatusBar style="auto" />
+      </View>
+    </SafeAreaView>
   );
 }
 

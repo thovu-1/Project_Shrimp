@@ -4,8 +4,13 @@ import { Stack } from 'expo-router'
 
 const RootLayout = () => {
   return (
-    <Stack>
-        <Stack.Screen name='index' options={{headerShown:false}}/>
+    <Stack screenOptions={{
+      headerStyle:{
+        backgroundColor:'green'
+      }
+    }}>
+        <Stack.Screen name='index' options={{headerShown:true, headerTitle:""}}/>
+        <Stack.Screen name='(tabs)' options={{headerShown:false}}/>
     </Stack>
   )
 }
