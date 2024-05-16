@@ -14,26 +14,32 @@ const TabsLayout = () => {
         tabBarStyle: {
             backgroundColor: 'white',
             borderTopWidth:1,
+            
         }
     }}>
         <Tabs.Screen name="profile" 
         options={{
             title: "Profile",
-            headerShown: false,
-            tabBarIcon: ({color}) => <FontAwesome name="user-circle" size={24} color={color}/>
+            headerShown: true,
+            tabBarIcon: ({color}) => <FontAwesome name="user-circle" size={24} color={color}/>,
+            
         }}/>
 
         <Tabs.Screen name="tanks" 
         options={{
-            title: "Tanks",
-            headerShown: false,
-            tabBarIcon: ({color}) => <MaterialCommunityIcons name="fishbowl-outline" size={24} color={color}/>
+            title: "Your Tanks",
+            headerShown: true,
+            href:'/tanks',
+            tabBarActiveTintColor: 'purple',
+            tabBarIcon: ({color}) => <MaterialCommunityIcons name="fishbowl-outline" size={24} color={color}/>,
+            
         }}/>
 
         <Tabs.Screen name="guides" 
         options={{
             title: "Guides",
-            headerShown: false,
+            headerShown: true,
+            tabBarActiveTintColor: 'orange',
             tabBarIcon: ({ color }) => <FontAwesome6 size={28} name="shrimp" color={color} />,
         
         }}/>

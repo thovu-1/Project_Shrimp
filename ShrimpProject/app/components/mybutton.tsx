@@ -1,20 +1,15 @@
 import { Pressable, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { Component, useState } from 'react'
 
-type ButtonProps = {
-  onPress: () => void;
-  title: string;
-  isPressed: boolean
-}
 
-const MyButton = (props: ButtonProps) => {
-  const buttonStyles = [styles.myButton, props.isPressed ? styles.pressedButton: null]
+const MyButton = ({title, handlePress, containerStyles, textStyles, isLoading}) => {
+
   return (
-    <View>
-      <TouchableOpacity onPress={()=>{props.onPress}} style={buttonStyles}>
-          <Text style={styles.appButtonText}>{props.title}</Text>
-      </TouchableOpacity>
-    </View>
+
+    <TouchableOpacity onPress={handlePress} activeOpacity={0.7}  style={[styles.myButton, isLoading ? {opacity:0.5}: {}]} disabled={isLoading}>
+        <Text style={[styles.appButtonText, textStyles ? textStyles:'']}>{title}</Text>
+    </TouchableOpacity>
+
   )
 }
 
@@ -35,13 +30,10 @@ const styles = StyleSheet.create({
     myButton: {
       alignItems: 'center',
       justifyContent: 'center',
-      paddingVertical: 12,
+      paddingVertical: 16,
       paddingHorizontal: 32,
-      borderRadius: 4,
+      borderRadius: 10,
       elevation: 3,
-      backgroundColor: 'green',
-    },
-    pressedButton: {
-      backgroundColor: 'darkgreen',
+      backgroundColor: 'orange',
     },
   });

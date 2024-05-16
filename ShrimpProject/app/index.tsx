@@ -1,33 +1,34 @@
 import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { Link, router} from 'expo-router';
 import { useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import  MyButton  from './components/mybutton';
 import 'react-native-gesture-handler';
-export default function App() {
+const HomePage= () => {
     const [isPressed, setIsPressed] = useState(false);
 
     const buttonStyles = [styles.myButton, isPressed ? styles.pressedButton: null]
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.container}>
-        <Text style={{color:'green'}}>Welcome to the shrimp shop</Text>
-      <View style={{top:150}}>
-  
-          {/* <MyButton title="Enter App" onPress={handle} isPressed={isPressed}/> */}
-          <Link href="/(tabs)/tanks" style={styles.myButton}>Press me to enter</Link>
-      </View>
-        <StatusBar style="auto" />
-      </View>
+      <ScrollView contentContainerStyle={{height:'100%'}}>
+        <View style={styles.container}>
+          <Text style={{color:'green', fontSize:24, bottom:50}}>Welcome to the shrimp shop</Text>
+        <View style={{top:150}}>
+          <Link href="/sign-in" style={styles.myButton}>Continue To The Shop</Link>
+        </View>
+        <StatusBar style="light"  backgroundColor='#161630'/>
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
 
+export default HomePage;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000000',
+    backgroundColor: '#161630',
     alignItems: 'center',
     justifyContent: 'center',
   },
